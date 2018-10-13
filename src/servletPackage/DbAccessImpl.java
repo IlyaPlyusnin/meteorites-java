@@ -16,7 +16,6 @@ public class DbAccessImpl extends DbAccessConfig {
 			System.out.println("Connected!");
 		} 
 		catch (SQLException e) {
-			//e.printStackTrace();
 			System.err.println(e);
 		}
 		
@@ -50,7 +49,6 @@ public class DbAccessImpl extends DbAccessConfig {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -61,7 +59,7 @@ public class DbAccessImpl extends DbAccessConfig {
 	
 	public static int update(Connection con, String query) {
 		Statement stmt;
-		int affected =0;
+		int affected = 0;
 		try {
 			stmt = con.createStatement();
 			affected = stmt.executeUpdate(query);
@@ -82,7 +80,6 @@ public class DbAccessImpl extends DbAccessConfig {
 			stmt = con.createStatement();
 			rows= stmt.executeUpdate(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -91,11 +88,10 @@ public class DbAccessImpl extends DbAccessConfig {
 
 	
 	public static void disconnect(Connection con) {
-		if(con !=null){
+		if(con != null){
 			try {
 				con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}//if
